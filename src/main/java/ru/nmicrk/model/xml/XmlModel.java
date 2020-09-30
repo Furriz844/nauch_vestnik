@@ -18,11 +18,14 @@ public final class XmlModel {
     public static final String SOURCES = "sources";
     public static final String SOURCE = "source";
     public static final String POS = "pos";
-
-
-
-
-
-
+    public static final String SECTIONS = "sections";
+    public static final String SECTION = "section";
+    public static final String DOI = "doi";
+    public static final String TYPE = "type";
+    public static final String PLACES = "places";
+    public static final String PLACE = "place";
+    public static final String CITATION = "citation";
+    public static final String RANGE = "range";
+    public static final String AUTHOR = "author";
 
 }

@@ -20,10 +20,10 @@ import java.util.List;
 public class Magazine {
     private int year;
     private int number;
-    List<Article> articles;
+    List<Section> sections;
 
     public Magazine() {
-        this.articles = new ArrayList<Article>();
+        this.sections = new ArrayList<Section>();
     }
 
     @XmlAttribute(name = XmlModel.YEAR)
@@ -36,9 +36,9 @@ public class Magazine {
         return number;
     }
 
-    @XmlElementWrapper(name = XmlModel.ARTICLES)
-    @XmlElement(name = XmlModel.ARTICLE)
-    public List<Article> getArticles() {
-        return articles;
+    @XmlElementWrapper(name = XmlModel.SECTIONS)
+    @XmlElement(name = XmlModel.SECTION)
+    public List<Section> getSections() {
+        return sections;
     }
 }

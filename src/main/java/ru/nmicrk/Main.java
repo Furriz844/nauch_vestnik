@@ -16,11 +16,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        readWord();
+        readXml();
+        //readWord();
     }
 
     public static void readXml() {
-        String path = "F:\\nmicrk\\2019\\1\\1-2019.xml";
+        String path = "F:\\nmicrk\\2019\\01\\01-2019_upd.xml";
         XmlParser xmlParser = new XmlParser();
         try {
             Magazine magazine = xmlParser.parse(path);
@@ -31,8 +32,8 @@ public class Main {
         }
     }
 
-    public static void readWord()  {
-        String path = "F:\\nmicrk\\2019\\1\\1-2019.docx";
+    public static void readWord() {
+        String path = "F:\\nmicrk\\2019\\01\\01-2019-02.docx";
         try {
             FileInputStream fis = new FileInputStream(path);
             XWPFDocument xdoc = new XWPFDocument(OPCPackage.open(fis));
@@ -41,7 +42,7 @@ public class Main {
             int n = 1;
             for (XWPFParagraph paragraph : paragraphList) {
 
-                System.out.println(n+++") "+paragraph.getText());
+                System.out.println(n++ + ") " + paragraph.getText());
                 //System.out.println(paragraph.getAlignment());
                 //System.out.print(paragraph.getRuns().size());
                 //System.out.println(paragraph.getStyle());
