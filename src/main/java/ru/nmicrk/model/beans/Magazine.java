@@ -20,6 +20,8 @@ import java.util.List;
 public class Magazine {
     private int year;
     private int number;
+    private int mainNumber;
+    private String month;
     List<Section> sections;
 
     public Magazine() {
@@ -40,5 +42,15 @@ public class Magazine {
     @XmlElement(name = XmlModel.SECTION)
     public List<Section> getSections() {
         return sections;
+    }
+
+    @XmlAttribute(name = XmlModel.MAIN_NUM)
+    public int getMainNumber() {
+        return mainNumber;
+    }
+
+    @XmlAttribute(name = XmlModel.MONTH)
+    public String getMonth() {
+        return month;
     }
 }

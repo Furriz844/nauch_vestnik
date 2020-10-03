@@ -6,22 +6,26 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import ru.nmicrk.model.beans.Magazine;
 import ru.nmicrk.parsers.XmlParser;
+import ru.nmicrk.service.MagazineService;
 
 import javax.xml.bind.JAXBException;
 
 import java.io.*;
 
+import java.nio.file.NoSuchFileException;
 import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) {
-        readXml();
+    public static void main(String[] args) throws NoSuchFileException {
+        //readXml();
         //readWord();
+        MagazineService magazineService = new MagazineService();
+        magazineService.processFolder("F:\\Работа\\nmicrk\\CATALOG");
     }
 
     public static void readXml() {
-        String path = "F:\\nmicrk\\2019\\01\\01-2019_upd.xml";
+        String path = "F:\\Работа\\nmicrk\\01-2020\\01-2020_upd.xml";
         XmlParser xmlParser = new XmlParser();
         try {
             Magazine magazine = xmlParser.parse(path);
@@ -43,16 +47,6 @@ public class Main {
             for (XWPFParagraph paragraph : paragraphList) {
 
                 System.out.println(n++ + ") " + paragraph.getText());
-                //System.out.println(paragraph.getAlignment());
-                //System.out.print(paragraph.getRuns().size());
-                //System.out.println(paragraph.getStyle());
-
-                // Returns numbering format for this paragraph, eg bullet or lowerLetter.
-                //System.out.println(paragraph.getNumFmt());
-                //System.out.println(paragraph.getAlignment());
-
-                //System.out.println(paragraph.isWordWrapped());
-
                 System.out.println("********************************************************************");
             }
         } catch (Exception ex) {

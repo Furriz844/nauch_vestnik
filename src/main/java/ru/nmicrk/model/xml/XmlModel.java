@@ -27,5 +27,8 @@ public final class XmlModel {
     public static final String CITATION = "citation";
     public static final String RANGE = "range";
     public static final String AUTHOR = "author";
+    public static final String MAIN_NUM = "main_num";
+    public static final String MONTH = "month";
+
 
 }

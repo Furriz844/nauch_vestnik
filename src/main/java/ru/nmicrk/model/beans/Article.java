@@ -27,6 +27,7 @@ public class Article {
     private List<Source> sources;
     private String citation;
     private String range;
+    private String pdfUrl;
 
 
     public Article() {
@@ -91,5 +92,9 @@ public class Article {
     @XmlElement(name = XmlModel.RANGE)
     public String getRange() {
         return range;
+    }
+
+    public String getPdfUrl() {
+        return pdfUrl;
     }
 }
