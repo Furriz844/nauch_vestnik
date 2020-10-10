@@ -24,6 +24,8 @@ public class Magazine {
     private String month;
     List<Section> sections;
 
+    private String path;
+
     public Magazine() {
         this.sections = new ArrayList<Section>();
     }
@@ -52,5 +54,9 @@ public class Magazine {
     @XmlAttribute(name = XmlModel.MONTH)
     public String getMonth() {
         return month;
+    }
+
+    public String getPath() {
+        return path;
     }
 }

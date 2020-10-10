@@ -6,6 +6,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import ru.nmicrk.model.beans.Magazine;
 import ru.nmicrk.parsers.XmlParser;
+import ru.nmicrk.service.CSVService;
 import ru.nmicrk.service.MagazineService;
 
 import javax.xml.bind.JAXBException;
@@ -14,14 +15,28 @@ import java.io.*;
 
 import java.nio.file.NoSuchFileException;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 public class Main {
     public static void main(String[] args) throws NoSuchFileException {
         //readXml();
         //readWord();
+        //todo Баг с списком литературы. удалять символы перед первой точкой и символ после этой точки.
         MagazineService magazineService = new MagazineService();
-        magazineService.processFolder("F:\\Работа\\nmicrk\\CATALOG");
+        Map<String, List<Magazine>> magazines = magazineService.processFolder("F:\\Работа\\nmicrk\\CATALOG");
+        CSVService csvService = new CSVService();
+        Set<String> keys = magazines.keySet();
+        List<Magazine> magazinesByYear;
+        for (String key : keys) {
+            magazinesByYear = magazines.get(key);
+            for (Magazine magazine : magazinesByYear) {
+                csvService.generateCSV(magazine);
+            }
+        }
+
+
     }
 
     public static void readXml() {
@@ -29,7 +44,7 @@ public class Main {
         XmlParser xmlParser = new XmlParser();
         try {
             Magazine magazine = xmlParser.parse(path);
-            System.out.println(magazine);
+            //System.out.println(magazine);
         } catch (JAXBException | IOException e) {
             System.out.println("Exception while " + path + " parsing.");
             e.printStackTrace();

@@ -63,6 +63,7 @@ public class MagazineService {
             magazine = xmlParser.parse(path);
             fillSources(year, volume, magazine);
             fillPdf(year, volume.getName(), magazine);
+            magazine.setPath(volume.getParent());
         } catch (JAXBException | IOException e) {
             System.out.println("Exception while " + path + " parsing.");
             e.printStackTrace();

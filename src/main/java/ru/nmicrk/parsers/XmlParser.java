@@ -24,6 +24,7 @@ public class XmlParser {
         File file = new File(filePath);
         JAXBContext jaxbContext = JAXBContext.newInstance(Magazine.class);
         String content = Files.lines(file.toPath()).collect(Collectors.joining(System.lineSeparator()));
+        content.replaceAll("\t", "");
         InputStream stream = new ByteArrayInputStream(XmlUtil.getCleanedXml(content).getBytes(StandardCharsets.UTF_8));
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         Magazine magazine = (Magazine) jaxbUnmarshaller.unmarshal(stream);
