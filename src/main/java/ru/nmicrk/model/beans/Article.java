@@ -17,15 +17,22 @@ import java.util.List;
 @XmlRootElement(name = XmlModel.ARTICLE)
 public class Article {
     private String name;
+    private String enName;
     private String annotation;
+    private String enAnnotation;
     private String keywords;
+    private String enKeyWords;
     private int num;
     private String doi;
     private String type;
     private List<Place> places;
+    private List<Place> enPlaces;
     private List<Author> authors;
+    private List<Author> enAuthors;
     private List<Source> sources;
+    private List<Source> enSources;
     private String citation;
+    private String enCitation;
     private String range;
     private String pdfUrl;
 
@@ -92,6 +99,44 @@ public class Article {
     @XmlElement(name = XmlModel.RANGE)
     public String getRange() {
         return range;
+    }
+
+    @XmlAttribute(name = XmlModel.EN_NAME)
+    public String getEnName() {
+        return enName;
+    }
+
+    @XmlElement(name = XmlModel.EN_ANNOTATION)
+    public String getEnAnnotation() {
+        return enAnnotation;
+    }
+
+    @XmlElement(name = XmlModel.EN_KEYWORDS)
+    public String getEnKeyWords() {
+        return enKeyWords;
+    }
+
+    @XmlElementWrapper(name = XmlModel.EN_PLACES)
+    @XmlElement(name = XmlModel.EN_PLACE)
+    public List<Place> getEnPlaces() {
+        return enPlaces;
+    }
+
+    @XmlElementWrapper(name = XmlModel.EN_AUTHORS)
+    @XmlElement(name = XmlModel.EN_AUTHOR)
+    public List<Author> getEnAuthors() {
+        return enAuthors;
+    }
+
+    @XmlElementWrapper(name = XmlModel.EN_SOURCES)
+    @XmlElement(name = XmlModel.EN_SOURCE)
+    public List<Source> getEnSources() {
+        return enSources;
+    }
+
+    @XmlElement(name = XmlModel.EN_CITATION)
+    public String getEnCitation() {
+        return enCitation;
     }
 
     public String getPdfUrl() {

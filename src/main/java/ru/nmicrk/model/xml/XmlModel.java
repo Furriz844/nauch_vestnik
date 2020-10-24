@@ -30,5 +30,15 @@ public final class XmlModel {
     public static final String MAIN_NUM = "main_num";
     public static final String MONTH = "month";
 
+    public static final String EN_NAME = "en_name";
+    public static final String EN_ANNOTATION = "en_annotation";
+    public static final String EN_KEYWORDS = "en_keywords";
+    public static final String EN_PLACES = "en_places";
+    public static final String EN_PLACE = "en_place";
+    public static final String EN_AUTHORS = "en_authors";
+    public static final String EN_AUTHOR = "en_author";
+    public static final String EN_SOURCES = "en_sources";
+    public static final String EN_SOURCE = "en_source";
+    public static final String EN_CITATION = "en_citation";
 
 }

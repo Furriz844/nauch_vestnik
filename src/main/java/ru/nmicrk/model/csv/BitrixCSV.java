@@ -23,6 +23,7 @@ public class BitrixCSV {
                     "IP_PROP11" + DELIM +
                     "IP_PROP6" + DELIM +
                     "IP_PROP14" + DELIM +
+                    "IP_PROP45" + DELIM +
                     "IP_PROP3" + DELIM +
                     "IP_PROP31" + DELIM +
                     "IP_PROP7" + DELIM +
@@ -58,6 +59,7 @@ public class BitrixCSV {
             IP_PROP11 = "",
             IP_PROP6 = "",
             IP_PROP14 = "",
+            IP_PROP45 = "",
             IP_PROP3 = "",
             IP_PROP31 = "",
             IP_PROP7 = "",
@@ -100,13 +102,28 @@ public class BitrixCSV {
         return this;
     }
 
+    public BitrixCSV setEnKeyWords(String IP_PROP45) {
+        this.IP_PROP45 = IP_PROP45;
+        return this;
+    }
+
     public BitrixCSV setAuthors(String IP_PROP8) {
         this.IP_PROP8 = "[HTML]" + IP_PROP8;
         return this;
     }
 
+    public BitrixCSV setEnAuthors(String IP_PROP11) {
+        this.IP_PROP11 = "[HTML]" + IP_PROP11;
+        return this;
+    }
+
     public BitrixCSV setCitation(String IP_PROP6) {
         this.IP_PROP6 = "[TEXT]" + IP_PROP6;
+        return this;
+    }
+
+    public BitrixCSV setEnCitation(String IP_PROP14) {
+        this.IP_PROP14 = "[TEXT]" + IP_PROP14;
         return this;
     }
 
@@ -125,13 +142,33 @@ public class BitrixCSV {
         return this;
     }
 
+    public BitrixCSV setEnPlaces(String IP_PROP12) {
+        this.IP_PROP12 = "[HTML]" + IP_PROP12;
+        return this;
+    }
+
+    public BitrixCSV setEnArticleName(String IP_PROP10) {
+        this.IP_PROP10 = IP_PROP10;
+        return this;
+    }
+
     public BitrixCSV setAnnotation(String IP_PROP9) {
         this.IP_PROP9 = "[HTML]" + IP_PROP9;
         return this;
     }
 
+    public BitrixCSV setEnAnnotation(String IP_PROP13) {
+        this.IP_PROP13 = "[HTML]" + IP_PROP13;
+        return this;
+    }
+
     public BitrixCSV setSources(String IP_PROP1) {
         this.IP_PROP1 = "[HTML]" + IP_PROP1;
+        return this;
+    }
+
+    public BitrixCSV setEnSources(String IP_PROP15) {
+        this.IP_PROP15 = "[HTML]" + IP_PROP15;
         return this;
     }
 
@@ -183,6 +220,7 @@ public class BitrixCSV {
                 .append(IP_PROP11).append(DELIM)
                 .append(IP_PROP6).append(DELIM)
                 .append(IP_PROP14).append(DELIM)
+                .append(IP_PROP45).append(DELIM)
                 .append(IP_PROP3).append(DELIM)
                 .append(IP_PROP31).append(DELIM)
                 .append(IP_PROP7).append(DELIM)

@@ -93,12 +93,20 @@ public class MagazineService {
                 .getSections()
                 .forEach(section -> section
                         .getArticles()
-                        .forEach(article -> article.setSources(getSources(year, volume, article.getNum()))));
+                        .forEach(article -> article.setSources(getSources(year, volume, article.getNum(), false))));
+        magazine
+                .getSections()
+                .forEach(section -> section
+                        .getArticles()
+                        .forEach(article -> article.setEnSources(getSources(year, volume, article.getNum(), true))));
 
     }
 
-    private List<Source> getSources(String year, File volume, int num) {
+    private List<Source> getSources(String year, File volume, int num, boolean eng) {
         String sourceFileName = getDocxName(year, volume.getName(), num);
+        if (eng) {
+            sourceFileName = "en" + sourceFileName;
+        }
         String path = volume.getAbsolutePath() + "\\" + sourceFileName;
         System.out.println(path);
         try {
