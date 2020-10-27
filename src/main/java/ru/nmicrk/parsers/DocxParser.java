@@ -27,12 +27,16 @@ public class DocxParser {
             for (XWPFParagraph paragraph : paragraphList) {
                 source = new Source();
                 source.setPosition(n++);
-                source.setValue(paragraph.getText());
+                source.setValue(trimNumber(paragraph.getText()));
                 sources.add(source);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return sources;
+    }
+
+    private String trimNumber(String text) {
+        return text.replaceAll("\\d+.\\t", "");
     }
 }

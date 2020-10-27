@@ -25,7 +25,7 @@ public class Main {
         //readWord();
         //todo Баг с списком литературы. удалять символы перед первой точкой и символ после этой точки.
         MagazineService magazineService = new MagazineService();
-        Map<String, List<Magazine>> magazines = magazineService.processFolder("F:\\Работа\\nmicrk\\CATALOG");
+        Map<String, List<Magazine>> magazines = magazineService.processFolder("F:\\CATALOG");
         CSVService csvService = new CSVService();
         Set<String> keys = magazines.keySet();
         List<Magazine> magazinesByYear;

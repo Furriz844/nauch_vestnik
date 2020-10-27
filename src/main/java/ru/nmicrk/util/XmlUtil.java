@@ -15,7 +15,8 @@ public class XmlUtil {
      * Remove problematic xml entities from the xml string so that you can parse it with java DOM / SAX libraries.
      */
     public static String getCleanedXml(String xmlString) {
-        return xmlString.replace("<value>","<value><![CDATA[").replace("</value>","]]></value>")
-                .replace("<annotation>","<annotation><![CDATA[").replace("</annotation>","]]></annotation>");
+        return xmlString.replace("<value>", "<value><![CDATA[").replace("</value>", "]]></value>")
+                .replace("<annotation>", "<annotation><![CDATA[").replace("</annotation>", "]]></annotation>")
+                .replace("<en_annotation>", "<en_annotation><![CDATA[").replace("</en_annotation>", "]]></en_annotation>");
     }
 }
