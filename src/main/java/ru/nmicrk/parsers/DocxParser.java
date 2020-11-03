@@ -37,6 +37,6 @@ public class DocxParser {
     }
 
     private String trimNumber(String text) {
-        return text.replaceAll("\\d+.\\t", "");
+        return text.replaceAll("^\\d+\\.\\t", "");
     }
 }
