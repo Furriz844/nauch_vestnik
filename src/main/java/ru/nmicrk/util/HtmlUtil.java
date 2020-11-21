@@ -10,6 +10,9 @@ import java.util.Objects;
 
 public class HtmlUtil {
     private static final String SYMBOL_CODE_TEMPLATE = "%s-%s-%s";
+    private static final String ORCID_LINK_TEMPLATE = "<a href=\"%s\" target=\"_blank\">" +
+            "<img border=\"0\" alt=\"ORCID\" " +
+            "src=\"/images/orcid.png\" width=\"16\" height=\"16\"></a>";
 
     public static String generateSymbolCode(String year, int mainNum, Article article) {
         String translitName = TranslitUtil.toTranslit(article.getName());
@@ -26,9 +29,19 @@ public class HtmlUtil {
                 sb.append(", ");
             }
             sb.append("<sup>").append(author.getPlace()).append("</sup> ");
-            sb.append(author.getValue());
+            String[] authorValues = author.getValue().split("@");
+            if (authorValues.length > 1) {
+                sb.append(getOrcidLink(authorValues[0]));
+                sb.append(authorValues[1]);
+            } else {
+                sb.append(author.getValue());
+            }
         }
         return sb.toString();
+    }
+
+    private static String getOrcidLink(String authorOrcidLink) {
+        return String.format(ORCID_LINK_TEMPLATE, authorOrcidLink);
     }
 
     public static String generatePlaces(List<Place> places) {
