@@ -11,6 +11,8 @@ import java.util.Objects;
 public class HtmlUtil {
     private static final String SYMBOL_CODE_TEMPLATE = "%s-%s-%s";
 
+    private static final String ORCID_TEMPLATE = "<a href=\"%s\" target=\"_blank\"><img border=\"0\" alt=\"ORCID\" src=\"/images/orcid.png\" width=\"16\" height=\"16\"></a>%s";
+
     public static String generateSymbolCode(String year, int mainNum, Article article) {
         String translitName = TranslitUtil.toTranslit(article.getName());
         if (translitName.length() > 128) {
@@ -26,7 +28,12 @@ public class HtmlUtil {
                 sb.append(", ");
             }
             sb.append("<sup>").append(author.getPlace()).append("</sup> ");
-            sb.append(author.getValue());
+            if (author.getValue().contains("@")) {
+                String[] orcidAuth = author.getValue().split("@");
+                sb.append(String.format(ORCID_TEMPLATE, orcidAuth[1], orcidAuth[0]));
+            } else {
+                sb.append(author.getValue());
+            }
         }
         return sb.toString();
     }
